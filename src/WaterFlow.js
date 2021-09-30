@@ -44,8 +44,6 @@ function WaterFlow() {
     waterClick += 10;
     if (allNums.includes(waterClick)) {
       blueColorArray.push(waterClick);
-    } else {
-      //    waterClick -= 10;
     }
     return waterClick;
   };
