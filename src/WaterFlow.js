@@ -28,12 +28,12 @@ function WaterFlow() {
   const flowSide = (waterClick) => {
     //go left
     left = waterClick - 1;
-    if (allNums.includes(left)) {
+    if (allNums.includes(left) && !blueColorArray.includes(left)) {
       blueColorArray.push(left);
       initiateFlow(left);
     }
     right = waterClick + 1;
-    if (allNums.includes(right)) {
+    if (allNums.includes(right) && !blueColorArray.includes(right)) {
       blueColorArray.push(right);
       initiateFlow(right);
     }
