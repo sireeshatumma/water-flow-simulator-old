@@ -13,6 +13,9 @@ export const Header = (props) => {
             setContext({
               ...context,
               step: 1,
+               blueColorArray: [],
+              waterArray: [],
+              allNums: [],
             });
           }}
         >
