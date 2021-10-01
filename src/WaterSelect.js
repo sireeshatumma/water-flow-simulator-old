@@ -5,12 +5,10 @@ import { Header, Footer } from "./HeaderFooter";
 
 function WaterFlow() {
   const [context, setContext] = useContext(Context);
-  console.log(context.newArray, context.cols);
   let cols = parseInt(context.cols);
   let waterArray = Array(1)
     .fill(0)
     .map((row1) => new Array(cols).fill(0));
-  console.log(waterArray);
   let x = 0;
   let w = 0;
   return (
@@ -31,7 +29,6 @@ function WaterFlow() {
                     key={w}
                     onClick={() => {
                       w = parseInt(String(rowIndex) + String(colIndex));
-                      console.log("water click" + w);
                       setContext({
                         ...context,
                         waterClick: w,
@@ -39,8 +36,7 @@ function WaterFlow() {
                       });
                     }}
                   >
-                    {`row-${rowIndex}-col-${colIndex}`}
-                    {/* {waterArray[rowIndex][colIndex]} */}
+                    
                   </button>
                 );
               })}
@@ -59,19 +55,7 @@ function WaterFlow() {
           }}
         >
           Back
-        </button>
-        {/* <button
-          onClick={() => {
-            setContext({
-              ...context,
-              step: 4,
-              allNums: newNums,
-            });
-            // console.log(newArray);
-          }}
-        >
-          Next
-        </button> */}
+        </button>     
       </div>
       <Footer />
     </div>
