@@ -107,7 +107,7 @@ function WaterFlow() {
                     }
                     key={w}
                   >
-                    {w}
+                    
                   </button>
                 );
               })}
