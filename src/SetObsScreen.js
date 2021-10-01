@@ -5,14 +5,10 @@ import DisplayMatrix from "./DisplayMatrix";
 
 function SetObsScreen() {
   const [context, setContext] = useContext(Context);
-  console.log("context", context.rows);
   const [matrixReady, SetMatrixReady] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const newNums = context.allNums;
-  console.log("allNums:" + newNums);
-
   let obs = parseInt(context.obs);
-  console.log("step:" + context.step, context.page);
   let displayArray = context.displayArray;
   let x = 0;
 
@@ -43,7 +39,7 @@ function SetObsScreen() {
         </div>
       </div>
       <div>
-        {/* {context.obs === 0 ? setButtonDisabled(false) : setButtonDisabled(true)} */}
+       
         <button
           onClick={() => {
             setContext({
@@ -55,14 +51,14 @@ function SetObsScreen() {
           Back
         </button>
         <button
-          // disabled={buttonDisabled}
+       
           onClick={() => {
             setContext({
               ...context,
               step: 3,
               allNums: newNums,
             });
-            // console.log(newArray);
+           
           }}
         >
           Next
