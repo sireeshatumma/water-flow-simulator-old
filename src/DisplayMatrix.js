@@ -5,7 +5,6 @@ function DisplayMatrix(props) {
   const [buttonDisabled, setButtonDisabled] = useState(props.buttonDisabled);
   const newNums = context.allNums;
   let obs = parseInt(context.obs);
-  console.log("step:" + context.step, context.page);
   let displayArray = context.displayArray;
   let x = 0;
 
@@ -41,7 +40,7 @@ function DisplayMatrix(props) {
                 });
               }}
             >
-              {x}
+             
             </button>
           );
         })}
