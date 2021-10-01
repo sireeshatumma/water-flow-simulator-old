@@ -1,14 +1,11 @@
 import { useState, useContext } from "react";
 import { Context } from "./Context.js";
-import DisplayMatrix from "./DisplayMatrix.js";
 import { Header, Footer } from "./HeaderFooter";
 
 function WaterFlow() {
   const [context, setContext] = useContext(Context);
-  const [buttonDisabled, setButtonDisabled] = useState(true);
   let cols = parseInt(context.cols);
   let rows = parseInt(context.rows);
-  let displayArray = context.displayArray;
   let allNums = context.allNums;
   let waterClick = context.waterClick;
   let blueColorArray = [];
@@ -17,7 +14,7 @@ function WaterFlow() {
   let waterArray = Array(rows + 1)
     .fill(0)
     .map((row1) => new Array(cols).fill(0));
-  let x = 0;
+
   let w = 0;
   allNums = allNums.map((num) => {
     return (num = num + 10);
@@ -47,7 +44,7 @@ function WaterFlow() {
     }
     return waterClick;
   };
-  let bool = true;
+ 
   const handleFlow = (waterClick) => {
     waterClick = parseInt(waterClick);
     if (String(waterClick).length === 1) {
