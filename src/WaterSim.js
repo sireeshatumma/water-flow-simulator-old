@@ -1,13 +1,10 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Context } from "./Context.js";
 import { Header, Footer } from "./HeaderFooter";
 
 function WaterSim() {
   const [context, setContext] = useContext(Context);
-  console.log(context.newArray, context.cols);
-  let cols = parseInt(context.cols);
-  let rows = parseInt(context.rows);
-  let displayArray = context.displayArray;
+ 
   let allNums = context.allNums;
   let blueColorArray = context.blueColorArray;
   let waterArray = context.waterArray;
