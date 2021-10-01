@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Context } from "./Context.js";
 function DisplayMatrix(props) {
   const [context, setContext] = useContext(Context);
@@ -26,7 +26,7 @@ function DisplayMatrix(props) {
               onClick={() => {
                 obs = obs - 1;
                 console.log("obs ", obs);
-                if (obs == 0) {
+                if (obs === 0) {
                   setButtonDisabled(true);
                 }
                 let num = parseInt(String(rowIndex) + String(colIndex));
