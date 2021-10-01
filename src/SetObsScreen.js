@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Context } from "./Context.js";
 import { Header, Footer } from "./HeaderFooter";
 import DisplayMatrix from "./DisplayMatrix";
@@ -6,14 +6,10 @@ import DisplayMatrix from "./DisplayMatrix";
 function SetObsScreen() {
   const [context, setContext] = useContext(Context);
   const [matrixReady, SetMatrixReady] = useState(0);
-  const [buttonDisabled, setButtonDisabled] = useState(true);
   const newNums = context.allNums;
-  let obs = parseInt(context.obs);
-  let displayArray = context.displayArray;
-  let x = 0;
 
   const createMatrix = (row, col) => {
-    x = 0;
+  
     return (
       <div>
         <div> Click to set Obstacles</div>
