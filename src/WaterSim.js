@@ -34,18 +34,18 @@ function WaterSim() {
                         : allNums.includes(w)
                         ? { backgroundColor: "lightblue" }
                         : { backgroundColor: "pink" }
-                      // { backgroundColor: "gray" }
+                     
                     }
                     key={w}
                   >
-                    {w}
+                   
                   </button>
                 );
               })}
             </div>
           );
         })}
-        {/* <DisplayMatrix buttonDisabled={true} /> */}
+      
       </div>
       <div></div>
       <Footer />
