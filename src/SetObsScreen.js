@@ -9,10 +9,9 @@ function SetObsScreen() {
   const newNums = context.allNums;
 
   const createMatrix = (row, col) => {
-  
     return (
       <div>
-        <div> Click to set Obstacles</div>
+        <div> </div>
         <DisplayMatrix buttonDisabled={false} />
       </div>
     );
@@ -31,11 +30,17 @@ function SetObsScreen() {
         OBS:{context.obs}
         <button onClick={renderMatrix}>Render Matrix</button>
         <div>
+          <div
+            style={{ fontStyle: "italic", color: "green", fontWeight: "bold" }}
+          >
+            {matrixReady === 0
+              ? "Click on Render Matrix"
+              : "Click to set Obstacles"}
+          </div>
           <div>{matrixReady && createMatrix(context.rows, context.cols)}</div>
         </div>
       </div>
       <div>
-       
         <button
           onClick={() => {
             setContext({
@@ -47,14 +52,12 @@ function SetObsScreen() {
           Back
         </button>
         <button
-       
           onClick={() => {
             setContext({
               ...context,
               step: 3,
               allNums: newNums,
             });
-           
           }}
         >
           Next
