@@ -6,34 +6,58 @@ import { Header, Footer } from "./HeaderFooter";
 
 function SelectScreen() {
   const [context, setContext] = useContext(Context);
-
   const [rows, setRows] = useState(0);
   const [cols, setCols] = useState(0);
   const [obs, setObs] = useState(0);
   let displayArray = [];
   let allNums = [];
+  let errorMsg = false;
+  let message = context.message;
+  if (message === undefined) {
+    message = "";
+  } else {
+    errorMsg = true;
+  }
   const handleClick = () => {
-    displayArray = Array(parseInt(rows))
-      .fill(0)
-      .map((row1) => new Array(parseInt(cols)).fill(0));
-    let x = 0;
+    if (rows !== 0 && cols !== 0 && obs !== 0) {
+      displayArray = Array(parseInt(rows))
+        .fill(0)
+        .map((row1) => new Array(parseInt(cols)).fill(0));
+      let x = 0;
 
-    displayArray.map((row1, rowIndex) => {
-      row1.map((col1, colIndex) => {
-        x = parseInt(String(rowIndex) + String(colIndex));
-        allNums.push(x);
+      displayArray.map((row1, rowIndex) => {
+        row1.map((col1, colIndex) => {
+          x = parseInt(String(rowIndex) + String(colIndex));
+          allNums.push(x);
+        });
       });
-    });
-    setContext({
-      ...context,
-      step: 2,
-      rows,
-      cols,
-      obs,
-      page: 1,
-      displayArray,
-      allNums,
-    });
+      setContext({
+        ...context,
+        step: 2,
+        message: "",
+        rows,
+        cols,
+        obs,
+        page: 1,
+        displayArray,
+        allNums,
+      });
+    } else {
+      console.log("else");
+      if (rows === 0) {
+        message = "Select rows";
+        console.log("select");
+      } else if (cols === 0) {
+        message = "Select columns";
+      } else if (obs === 0) {
+        message = "Select obstructions";
+      }
+      setContext({
+        ...context,
+        step: 1,
+        message,
+      });
+    }
   };
   return (
     <div className="fullscreen">
@@ -83,7 +107,10 @@ function SelectScreen() {
         </div>
         <div className="sub-step1"></div>
         <div className="rowBox">
-          <button onClick={handleClick}>Submit</button>
+          <div style={{ color: "red" }}>{errorMsg ? message : ""}</div>
+          <div>
+            <button onClick={handleClick}>Submit</button>
+          </div>
         </div>
       </div>
 
@@ -93,3 +120,4 @@ function SelectScreen() {
 }
 
 export default SelectScreen;
+
